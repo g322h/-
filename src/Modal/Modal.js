@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './Modal.css';
 
-export default class Modal extends Component {
+export class Modal extends Component {
   state = {
     isOpen: false,
   };

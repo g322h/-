@@ -1,8 +1,8 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import TodoList from './Todo/TodoList';
 import Context from './context';
 import { Loader } from './Loader';
-import Modal from './Modal/Modal';
+import { Modal } from './Modal/Modal';
+import { TodoList } from './Todo/TodoList';
 
 const AddTodo = lazy(
   () =>

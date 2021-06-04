@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useInputValue } from '../hooks';
 
-function AddTodo({ onCreate }) {
+export default function AddTodo({ onCreate }) {
   const input = useInputValue('');
 
   function submitHandler(event) {
@@ -24,5 +24,3 @@ function AddTodo({ onCreate }) {
 AddTodo.propTypes = {
   onCreate: PropTypes.func.isRequired,
 };
-
-export default AddTodo;

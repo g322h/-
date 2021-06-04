@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import TodoItem from './TodoItem';
+import { TodoItem } from './TodoItem';
 
 const styles = {
   ul: {
@@ -9,7 +9,7 @@ const styles = {
   },
 };
 
-function TodoList(props) {
+export function TodoList(props) {
   return (
     <ul style={styles.ul}>
       {props.todos.map((todo, index) => {
@@ -30,5 +30,3 @@ TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
   onToggle: PropTypes.func.isRequired,
 };
-
-export default TodoList;
