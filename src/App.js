@@ -1,24 +1,24 @@
-import React, { useEffect } from "react";
-import TodoList from "./Todo/TodoList";
-import Context from "./context";
-import Loader from "./Loader";
-import Modal from './Modal/Modal'
+import { lazy, Suspense, useEffect, useState } from 'react';
+import TodoList from './Todo/TodoList';
+import Context from './context';
+import { Loader } from './Loader';
+import Modal from './Modal/Modal';
 
-const AddTodo = React.lazy(
+const AddTodo = lazy(
   () =>
     new Promise((resolve) => {
       setTimeout(() => {
-        resolve(import("./Todo/AddTodo"));
+        resolve(import('./Todo/AddTodo'));
       }, 3000);
     })
 );
 
 function App() {
-  const [todos, setTodos] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
+  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
       .then((response) => response.json())
       .then((todos) => {
         setTimeout(() => {
@@ -61,9 +61,9 @@ function App() {
         <h1>React tutorial</h1>
         <Modal />
 
-        <React.Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader />}>
           <AddTodo onCreate={addTodo} />
-        </React.Suspense>
+        </Suspense>
 
         {loading && <Loader />}
         {todos.length ? (

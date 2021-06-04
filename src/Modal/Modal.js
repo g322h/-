@@ -1,14 +1,14 @@
-import React from "react";
-import "./Modal.css";
+import { Component } from 'react';
+import './Modal.css';
 
-export default class Modal extends React.Component {
+export default class Modal extends Component {
   state = {
     isOpen: false,
   };
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <button onClick={() => this.setState({ isOpen: true })}>
           Open modal
         </button>
@@ -24,7 +24,7 @@ export default class Modal extends React.Component {
             </div>
           </div>
         )}
-      </React.Fragment>
+      </>
     );
   }
 }
