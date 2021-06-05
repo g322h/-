@@ -1,19 +1,19 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import Context from './context';
-import { Loader } from './Loader';
-import { Modal } from './Modal/Modal';
-import { TodoList } from './Todo/TodoList';
+import { Loader } from './components/Loader';
+import { Modal } from './components/Modal';
+import { TodoList } from './components/Todo/TodoList';
+import { Context } from './store/context';
 
 const AddTodo = lazy(
   () =>
     new Promise((resolve) => {
       setTimeout(() => {
-        resolve(import('./Todo/AddTodo'));
+        resolve(import('./components/Todo/AddTodo'));
       }, 3000);
     })
 );
 
-function App() {
+export function App() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -75,5 +75,3 @@ function App() {
     </Context.Provider>
   );
 }
-
-export default App;

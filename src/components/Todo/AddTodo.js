@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useInputValue } from '../hooks';
+import { useInputValue } from '../../hooks';
 
 export default function AddTodo({ onCreate }) {
   const input = useInputValue('');
