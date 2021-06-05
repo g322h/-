@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Context from '../context';
+import { Context } from '../../store/context';
 
 export function TodoItem({ todo, index, onChange }) {
   const { removeTodo } = useContext(Context);
