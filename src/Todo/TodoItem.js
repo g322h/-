@@ -2,22 +2,7 @@ import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Context from '../context';
 
-const styles = {
-  li: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alingItems: 'center',
-    padding: '.5rem 1rem',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    marginBottom: '.5rem',
-  },
-  input: {
-    marginRight: '1rem',
-  },
-};
-
-function TodoItem({ todo, index, onChange }) {
+export function TodoItem({ todo, index, onChange }) {
   const { removeTodo } = useContext(Context);
   const classes = [];
 
@@ -52,4 +37,17 @@ TodoItem.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default TodoItem;
+const styles = {
+  li: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alingItems: 'center',
+    padding: '.5rem 1rem',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    marginBottom: '.5rem',
+  },
+  input: {
+    marginRight: '1rem',
+  },
+};
