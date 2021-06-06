@@ -7,7 +7,7 @@ export default function AddTodo({ onCreate }) {
   function submitHandler(event) {
     event.preventDefault();
 
-    if (input.value().trim()) {
+    if (input.value()) {
       onCreate(input.value());
       input.clear();
     }

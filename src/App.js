@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
+import { fetchTodos } from './api';
 import { Loader } from './components/Loader';
 import { Modal } from './components/Modal';
 import { TodoList } from './components/Todo/TodoList';
@@ -18,14 +19,11 @@ export function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
-      .then((response) => response.json())
-      .then((todos) => {
-        setTimeout(() => {
-          setTodos(todos);
-          setLoading(false);
-        }, 2000);
-      });
+    setLoading(true);
+
+    fetchTodos(5).then((todos) => setTodos(todos));
+
+    setLoading(false);
   }, []);
 
   function toggleTodo(id) {
